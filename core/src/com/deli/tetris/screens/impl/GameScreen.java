@@ -31,15 +31,15 @@ public class GameScreen extends AbstractScreen implements InputProcessor {
     }
 
     public void processInput() {
-        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
             board.moveFigureLeft();
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.D)) {
             board.moveFigureRight();
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.W)) {
             board.getCurrentFigure().rotate();
         }
 
