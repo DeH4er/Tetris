@@ -184,6 +184,10 @@ public class Board {
     }
 
     public void accelerateTime() {
-        timeBorder = .3f;
+        timeBorder *= .3f;
+    }
+
+    public void normalizeAcceleration() {
+        timeBorder = 1f;
     }
 }
