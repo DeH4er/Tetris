@@ -24,6 +24,10 @@ public class ScreenManager {
         return screens.pop();
     }
 
+    public void resize(int width, int height) {
+        screens.peek().resize(width, height);
+    }
+
     public void update() {
         screens.peek().update();
     }

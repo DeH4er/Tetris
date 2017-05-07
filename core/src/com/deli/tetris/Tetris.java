@@ -22,7 +22,7 @@ public class Tetris implements ApplicationListener {
 
 	@Override
 	public void resize(int width, int height) {
-
+		screenManager.resize(width, height);
 	}
 
 	@Override

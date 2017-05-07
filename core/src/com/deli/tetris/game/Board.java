@@ -1,6 +1,7 @@
 package com.deli.tetris.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -17,10 +18,10 @@ public class Board {
     private Figure currentFigure;
     protected float time;
     protected float timeBorder;
-    private OrthographicCamera camera;
+    private Camera camera;
     private ShapeRenderer shapeRenderer;
 
-    public Board(OrthographicCamera camera) {
+    public Board(Camera camera) {
         board = new Cell[Settings.COLS + 4][Settings.ROWS + 4];
         for (int y = 0; y < Settings.ROWS; y++) {
             for (int x = 0; x < Settings.COLS; x++) {

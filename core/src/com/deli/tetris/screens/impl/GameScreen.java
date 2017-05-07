@@ -24,8 +24,8 @@ public class GameScreen extends AbstractScreen implements InputProcessor {
     public GameScreen() {
         camera = new OrthographicCamera(Settings.COLS * Settings.CELL_SIZE, Settings.ROWS * Settings.CELL_SIZE);
         camera.position.set(Settings.COLS * Settings.CELL_SIZE / 2, Settings.ROWS * Settings.CELL_SIZE / 2, 0);
-//        viewport = new FitViewport(Settings.COLS * Settings.CELL_SIZE, Settings.ROWS * Settings.CELL_SIZE, camera);
-        board = new Board(camera);
+        viewport = new FitViewport(Settings.COLS * Settings.CELL_SIZE, Settings.ROWS * Settings.CELL_SIZE, camera);
+        board = new Board(viewport.getCamera());
         board.start();
         Gdx.input.setInputProcessor(this);
     }
