@@ -14,7 +14,7 @@ public class FigureSet {
     private static int FIGURES_COUNT = 7;
 
     public static Figure getRandomFigure() {
-        int choice = random.nextInt() % (FIGURES_COUNT + 1) + 1;
+        int choice = random.nextInt(FIGURES_COUNT) + 1;
         switch (choice) {
             case 1: return new Figure1();
             case 2: return new Figure2();
