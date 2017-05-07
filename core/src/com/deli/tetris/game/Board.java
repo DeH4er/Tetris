@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.deli.tetris.game.impl.FigureSet;
 import com.deli.tetris.utils.Settings;
 
+import java.util.Set;
+
 /**
  * Created by denys on 07.05.17.
  */
@@ -94,6 +96,22 @@ public class Board {
         time += Gdx.graphics.getDeltaTime();
 
         if (time >= timeBorder) {
+
+            //TODO check all lines
+            for (int y = Settings.ROWS - 1; y >= 0 ; y--) {
+                boolean isLineFull = true;
+                for (int x = Settings.COLS - 1; x >= 0  && isLineFull; x--) {
+                    if (board[x][y] == null) {
+                        isLineFull = false;
+                    }
+                }
+
+                if (isLineFull) {
+                    removeLine(y);
+                }
+
+            }
+
             boolean freeze = false;
 
             for (int i = 0; i < currentFigure.getCells().size() && !freeze; i++) {
@@ -146,7 +164,15 @@ public class Board {
     }
 
     private void removeLine(int lineNumber) {
+        moveLinesDown(lineNumber);
+    }
 
+    private void moveLinesDown(int pivot) {
+        for (int y = pivot; y < Settings.ROWS - 1; y++) {
+            for (int x = 0; x < Settings.COLS; x++) {
+                board[x][y] = board[x][y + 1];
+            }
+        }
     }
 
     private boolean wasCollision() {
@@ -158,6 +184,6 @@ public class Board {
     }
 
     public void accelerateTime() {
-        timeBorder = timeBorder * 0.1f;
+        timeBorder = .3f;
     }
 }
